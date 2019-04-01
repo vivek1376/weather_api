@@ -44,8 +44,8 @@
     - Fetch weather forecast for the next 7 days
     - Response: 200
     - Response type: *application/json*
-    ```
-    [{"DATE":"YYYYMMDD","TMAX":"xx.yy","TMIN":"xx.yy"},
-      ...
-    ]
-    ```
+      ```
+      [{"DATE":"YYYYMMDD","TMAX":"xx.yy","TMIN":"xx.yy"},
+        ...
+      ]
+      ```
