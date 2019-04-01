@@ -1,0 +1,69 @@
+swagger: '2.0'
+info: {title: Weather API, description: "Fetch / Add max & min temperature data for Cincinnati for a given date.", version: 1.0.0}
+host: 35.243.142.43
+basePath: /weather/api
+schemes:
+  - http
+produces: [application/json]
+consumes: [application/json]
+definitions:
+  weather_data:
+    properties:
+      DATE: {type: string}
+      TMAX: {type: string}
+      TMIN: {type: string}
+  resp_date:
+    properties:
+      DATE: {type: string}
+  resp_all_dates:
+    type: array
+    items: {type: object}
+  resp_forecast:
+    type: array
+    items: {type: object}
+paths:
+  /historical/:
+    get:
+      description: Fetch list of all dates for which weather information is available
+      responses:
+        '200':
+          description: ''
+          schema: {$ref: '#/definitions/resp_all_dates'}
+    post:
+      description: Add weather info for a particular date
+      parameters:
+      - in: body
+        name: post_data
+        required: true
+        schema: {$ref: '#/definitions/weather_data'}
+      responses:
+        '201':
+          description: ''
+          schema: {$ref: '#/definitions/resp_date'}
+  /historical/{date}:
+    get:
+      description: Fetch weather information for a particular date
+      parameters:
+      - {in: path, name: date, required: true, type: string}
+      responses:
+        '200':
+          description: ''
+          schema: {$ref: '#/definitions/weather_data'}
+        '404':
+          description: '404, in case no info is available'
+    delete:
+      description: Delete weather date for a particular date
+      parameters:
+      - {in: path, name: date, required: true, type: string}
+      responses:
+        '200':
+          description: ''
+  /forecast/{date}:
+    get:
+      description: Fetch weather forecast for the next 7 days
+      parameters:
+      - {in: path, name: date, required: true, type: string}
+      responses:
+        '200':
+          description: ''
+          schema: {$ref: '#/definitions/resp_forecast'}
