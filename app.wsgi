@@ -205,8 +205,7 @@ build_weather_data_list_from_json_openwmpapi([])
 
 
 
-debug(mode=True)
+# debug(mode=True)
 application = default_app()
-#run(reloader=True, debug=True)
 
 
