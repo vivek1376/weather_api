@@ -14,13 +14,13 @@
     - Add weather info for a particular date
     - Input parameter type: *application/json*
     - Input parameter:
-    ```
-    {
-      "DATE": "string",
-      "TMAX": "string",
-      "TMIN": "string"
-    }
-    ```
+      ```
+      {
+        "DATE": "string",
+        "TMAX": "string",
+        "TMIN": "string"
+      }
+      ```
     - Response: 201
     - Response type: *application/json*
       ```
